@@ -30,7 +30,7 @@ mk_kaitou=">"$zhoubaoname"\n\n>"$Year"共有52周\n本周是第"$Week"\n\n##本�
 cd /Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/List/ &&
 #创建工作日志文档（判断 月份）
 if [ ! -d $Month ];then
-	`/Users/xxx/Desktop/Code/Shell/Task/task_Month.sh`
+	`/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/task_Month.sh`
 #运行完成写入日志
 	echo '成功创建了文件夹'$Month >> /Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/Log/task_Month.log
 fi

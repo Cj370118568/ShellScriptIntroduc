@@ -10,7 +10,7 @@
   <array>
   <!-- 指定要运行的脚本 -->
     <string>/bin/sh</string>
-    <string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/task_Day.sh</string>
+    <string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/introduce.sh</string>
   </array>
   <!-- 指定要运行的时间 -->
 
@@ -19,18 +19,18 @@
   
   <key>StartCalendarInterval</key>
   <dict>    
-        <key>Weekday</key>
-        <integer>1</integer>
+        <!-- <key>Weekday</key>
+        <integer>1</integer> -->
         <key>Minute</key>
         <integer>30</integer>
         <key>Hour</key>
-        <integer>11</integer>
+        <integer>09</integer>
   </dict>
 <!-- 标准输出文件 -->
 <key>StandardOutPath</key>
-<string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/Log/food.log</string>
+<string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/Log/test.log</string>
 <!-- 标准错误输出文件，错误日志 -->
 <key>StandardErrorPath</key>
-<string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/Log/food.err</string>
+<string>/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/Log/test.err</string>
 </dict>
-</plist>xxx
+</plist>

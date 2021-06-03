@@ -3,8 +3,10 @@
 # echo $name;
 # echo "第一个变量：$1";
 
-current=`ls`
-echo $current
+# current=`ls`
+# echo $current
+
+/bin/date >> /Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/time.txt
 
 # read testvar;
 # echo $testvar;

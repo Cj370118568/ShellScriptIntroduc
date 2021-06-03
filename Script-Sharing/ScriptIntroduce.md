@@ -302,7 +302,7 @@ AppleScript 则是 macOS 下提供的系统级别的脚本语言。
   3. 提交crontab文件```crontab xxx```
   4. 编辑crontab文件```crontab -e```
   5. 删除crontab文件```crontab -r```
-- launchctl
+- launchctl(现在貌似用不了了)
   launchctl 通过配置文件指定执行周期和任务，不同于 crontab，launchctl 的最小时间间隔是 1s。
   - plist 文件存放路径为```/Library/LaunchAgents```或```/Library/LaunchDaemons```，前者仅当用户登陆后才被执行，后者只要系统启动就会被执行。
     **常用key**
@@ -325,11 +325,11 @@ AppleScript 则是 macOS 下提供的系统级别的脚本语言。
 
 - Shell:显示/不显示隐藏文件
 - crontab:输出时间
-- launchctl:工作日志
+- ~~launchctl:工作日志~~
 
 ## 总结
 
-appleScript，shellscript两种脚本语言都可以写出实用的脚本，配合定时执行，可以达到解决重复性工作的效果
+appleScript，shellscript两种脚本语言都可以写出实用的脚本，配合定时执行，可以达到解决重复性工作的效果。
 
 ## 参考链接
 

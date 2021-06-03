@@ -16,7 +16,7 @@ fi
 
 if [[ $week_day -eq 1 ]]; then
 	#statements
-	`/Users/xxx/Desktop/Code/Shell/Task/task_Weekday.sh`
+	`/Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/demo/workinglist/task_Weekday.sh`
 fi
 
 #2018.08.28
@@ -27,10 +27,9 @@ data_shenyu=`expr 25 - $data_daka`
 #普通文件
 # kaitou="今天是"${data_info}。"\n\n每天都有一个好心情，加油！\n\n今天的主要任务是："
 #markdown开头
-kaitou=">今天是"${data_info}"\n>**数据备份了么！系统更新记得重新备份！！！**\n>今天打卡了么！离25号还有"${data_shenyu}天",[赶紧填工时！](http://itmp.sf-express.com/loginmgmt/frame.action?name=timemgmt&frameSize=1)\n>加油！你是最胖的！\n\n##今天的主要任务是：\n\n* [x] \n\n* [ ]"
+kaitou=">今天是"${data_info}"\n>**记得提交代码！！！**\n>今天打卡了么！"\n>加油！你是最胖的！\n\n##今天的主要任务是：\n\n* [x] \n\n* [ ]"
 
  
-
 #计算当前周日期 1
 to_monday=`expr $week_day - 1`
 to_sunday=`expr 7 - $week_day`
