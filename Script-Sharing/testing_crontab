@@ -1,0 +1,17 @@
+## 每分钟输出当前时间到time.txt
+##*/1 * * * * /bin/date >> /Users/chenjian/working/eking/share/ShellScriptIntroduce/Script-Sharing/time.txt
+
+##每1分钟执行一次myCommand
+##* * * * * myCommand
+
+##每小时的第3和第15分钟执行
+##3,15 * * * * myCommand
+
+##在上午8点到11点的第3和第15分钟执行
+##3,15 8-11 * * * myCommand
+
+##每隔两天的上午8点到11点的第3和第15分钟执行
+##3,15 8-11 */2  *  * myCommand
+
+##每周一上午8点到11点的第3和第15分钟执行
+##3,15 8-11 * * 1 myCommand

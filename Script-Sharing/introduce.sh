@@ -1,7 +1,13 @@
+#!/bin/bash
 # name="CodeCj"
+# echo $name;
+# echo "第一个变量：$1";
 
-# echo "第一个变量：$0";
+current=`ls`
+echo $current
 
+# read testvar;
+# echo $testvar;
 
 # ------------------------------------变量----------------------------------------
 # studentName="小明"

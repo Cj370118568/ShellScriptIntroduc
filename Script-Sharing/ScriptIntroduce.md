@@ -4,32 +4,63 @@
   - [案例](#案例)
   - [目的&应用场景](#目的应用场景)
   - [macOS下的脚本](#macos下的脚本)
-  - [基本知识](#基本知识)
+  - [Shell脚本基本知识](#shell脚本基本知识)
     - [使用方式](#使用方式)
     - [语法基础](#语法基础)
+  - [AppleScript](#applescript)
+  - [定时启用](#定时启用)
   - [demo](#demo)
   - [总结](#总结)
-  - [附](#附)
-    - [参考链接](#参考链接)
-    - [实用脚本](#实用脚本)
+  - [参考链接](#参考链接)
 
 ## 案例
 
-翼课学生组件化之后模块有14个，用命令行的方式来操作非常麻烦，
+翼课学生组件化之后模块有14个，用命令行的方式来操作非常麻烦，用图形化工具可以稍微减少复杂度。但是效果也很糟糕：
+![截屏2021-05-27 17.40.28](/assets/截屏2021-05-27%2017.40.28.png)
+
+这种情况下的最优解就是合理利用脚本减少重复性工作
+![QQ20210603-130842@2x](/assets/QQ20210603-130842@2x.png)
 
 ## 目的&应用场景
 
+运用脚本的目的就是避免人工去做机械性、重复性的操作，提高工作和生活的效率。
+
 ## macOS下的脚本
 
-## 基本知识
+脚本语言有很多种，你可能听说过的 Shell Script、Python 和 JavaScript，都是其中的代表。
+AppleScript 则是 macOS 下提供的系统级别的脚本语言。
+今天主要讲的是shell脚本。
+
+## Shell脚本基本知识
 
 ### 使用方式
+
+1. 作为可执行程序
+   在终端中直接执行脚本文件。 cd 到相应目录
+
+   ```shell
+   chmod +x ./test.sh
+   ./test.sh #执行脚本
+   ```
+
+2. 作为解释器参数
+   这种运行方式是，直接运行解释器，其参数就是 shell 脚本的文件名，如：
+
+   ```shell
+   /bin/sh test.sh
+   /bin/php test.php
+   ```
 
 ### 语法基础
 
 - **常用命令**
   - echo
-  - test
+  - unix命令
+    - cd,ls,cp,rm,mv
+    - grep
+    - cat
+    - read
+    - ...
 - **变量**
 - **数组**
 - **传参**
@@ -253,15 +284,56 @@
       |$- | 显示Shell使用的当前选项，与set命令功能相同。|
       |$? | 显示最后命令的退出状态。0表示没有错误，其他任何值表明有错误。|
 
+## AppleScript
+
+## 定时启用
+
+- crontab(linux,Unix常用)
+  1. 列出crontab文件```crontab -l```
+  2. 新建crontab文件
+    **语法**
+    ```分 时 日 月 星期 要运行的命令```
+     - 第1列分钟0～59
+     - 第2列小时0～23（0表示子夜）
+     - 第3列日1～31
+     - 第4列月1～12
+     - 第5列星期0～7（0和7表示星期天）
+     - 第6列要运行的命令
+  3. 提交crontab文件```crontab xxx```
+  4. 编辑crontab文件```crontab -e```
+  5. 删除crontab文件```crontab -r```
+- launchctl
+  launchctl 通过配置文件指定执行周期和任务，不同于 crontab，launchctl 的最小时间间隔是 1s。
+  - plist 文件存放路径为```/Library/LaunchAgents```或```/Library/LaunchDaemons```，前者仅当用户登陆后才被执行，后者只要系统启动就会被执行。
+    **常用key**
+    - StartInterval: 指定脚本每间隔多长时间（单位：秒）执行一次；
+    - StartCalendarInterval: 可以指定脚本在多少分钟、小时、天、星期几、月时间上执行，类似如crontab的中的设置，包含下面的 key:
+      - Minute
+      - Hour
+      - Day
+      - Weekday
+      - Month
+    - RunAtLoad: 加载时执行一次
+    - StandardOutPath: 标准输出路径
+    - StandardErrorPath: 错误输出路径
+  - 加载任务```launchctl load```
+  - 卸载任务```launchctl unload```
+  - 立即执行一次任务```launchctl start```
+  - 停止任务```launchctl stop```
+
 ## demo
+
+- Shell:显示/不显示隐藏文件
+- crontab:输出时间
+- launchctl:工作日志
 
 ## 总结
 
-## 附
+appleScript，shellscript两种脚本语言都可以写出实用的脚本，配合定时执行，可以达到解决重复性工作的效果
 
-### 参考链接
+## 参考链接
 
 - [Shell 编程快速入门](https://www.runoob.com/w3cnote/shell-quick-start.html)
 - [Mac下Shell脚本使用](https://www.jianshu.com/p/780cdac4e9a7)
-
-### 实用脚本
+- [不错的教程](https://www.jb51.net/article/28514.htm)
+- [定时任务](https://www.jianshu.com/p/4addd9b455f2)
