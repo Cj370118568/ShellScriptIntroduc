@@ -62,9 +62,93 @@ AppleScript 则是 macOS 下提供的系统级别的脚本语言。
     - read
     - ...
 - **变量**
+  定义：```your_name="runoob.com"```
+  使用：
+
+  ```
+  echo $your_name
+  echo ${your_name}
+  ```
+
 - **数组**
+  语法：
+  ```array_name=(value1 value2 ... valuen)```
+  或
+
+  ```shell
+  array_name[0]=value0
+  array_name[1]=value1
+  array_name[2]=value2
+  ```
+
+  ```shell
+  ${array_name[index]} #读取
+  ```
+
+  实例：
+
+  ```shell
+  my_array=(A B "C" D)
+
+  echo "第一个元素为: ${my_array[0]}"
+  echo "第二个元素为: ${my_array[1]}"
+  echo "第三个元素为: ${my_array[2]}"
+  echo "第四个元素为: ${my_array[3]}"
+  ```
+
 - **传参**
+  我们可以在执行 Shell 脚本时，向脚本传递参数，脚本内获取参数的格式为：$n。n 代表一个数字，1 为执行脚本的第一个参数，2 为执行脚本的第二个参数，以此类推……
+
+  实例：
+
+  ```shell
+  echo "Shell 传递参数实例！";
+  echo "执行的文件名：$0";
+  echo "第一个参数为：$1";
+  echo "第二个参数为：$2";
+  echo "第三个参数为：$3";
+  ```
+
+  ```shell
+  ./test.sh 1 2 3 #使用
+  ```
+
 - **运算符**
+  原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。
+
+  expr 是一款表达式计算工具，使用它能完成表达式的求值操作。
+
+  实例：
+
+  ```shell
+  a=10
+  b=20
+
+  val=`expr $a + $b`
+  echo "a + b : $val"
+
+  val=`expr $a - $b`
+  echo "a - b : $val"
+
+  val=`expr $a \* $b`
+  echo "a * b : $val"
+
+  val=`expr $b / $a`
+  echo "b / a : $val"
+
+  val=`expr $b % $a`
+  echo "b % a : $val"
+
+  if [ $a == $b ]
+  then
+    echo "a 等于 b"
+  fi
+  if [ $a != $b ]
+  then
+    echo "a 不等于 b"
+  fi
+  ```
+
 - **流程控制**
   <details>
   <summary><strong>if</strong></summary>
@@ -286,6 +370,22 @@ AppleScript 则是 macOS 下提供的系统级别的脚本语言。
 
 ## AppleScript
 
+  语法：
+
+  ```
+  tell application "应用名"
+    希望他做的事
+  end tell
+  ```
+
+  实例：
+
+  ```
+  tell application "Safari"
+    activate
+  end tell 
+  ```
+
 ## 定时启用
 
 - crontab(linux,Unix常用)
@@ -326,10 +426,14 @@ AppleScript 则是 macOS 下提供的系统级别的脚本语言。
 - Shell:显示/不显示隐藏文件
 - crontab:输出时间
 - ~~launchctl:工作日志~~
+- 学生端组件化后的提交/推送
+- appleScript:复制当前路径
 
 ## 总结
 
 appleScript，shellscript两种脚本语言都可以写出实用的脚本，配合定时执行，可以达到解决重复性工作的效果。
+
+除了自己写脚本，日常中有更方便的方式能实现自动化，比如日历、捷径（ios）、homekit等，善用工具可以减轻很多不必要的负担，也没那么容易忘事。
 
 ## 参考链接
 
@@ -337,3 +441,4 @@ appleScript，shellscript两种脚本语言都可以写出实用的脚本，配�
 - [Mac下Shell脚本使用](https://www.jianshu.com/p/780cdac4e9a7)
 - [不错的教程](https://www.jb51.net/article/28514.htm)
 - [定时任务](https://www.jianshu.com/p/4addd9b455f2)
+- [applescript集合](https://github.com/unforswearing/applescript)
